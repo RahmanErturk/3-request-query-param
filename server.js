@@ -1,5 +1,9 @@
-const express = require("express");
-const users = require("./users.json");
+import express from "express"; // ES6 Module
+
+import users from "./users.json" assert { type: "json" }; // ES6 Module
+
+// const express = require("express"); // CommonJS Module
+// const users = require("./users.json");
 
 const server = express();
 
@@ -22,13 +26,13 @@ server.get("/users/:id", (req, res) => {
 
 // Aufgabe 3
 server.get("/users", (req, res) => {
-  const user = users.find((user) => user.first_name === req.query.username);
-  console.log(user);
+  const user = users.find((elem) => elem.first_name === req.query.name);
 
-  if (user === undefined) {
-    return res.json({ status: 404, message: "User not found" });
+  if (user) {
+    return res.json(user);
   }
-  res.json(user);
+
+  res.json(users);
 });
 
 server.listen(3000, () => {

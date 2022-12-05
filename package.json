@@ -11,6 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/RahmanErturk/request-param-query.git"
   },
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
